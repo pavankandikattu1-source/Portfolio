@@ -1,12 +1,11 @@
 -- Customer Churn Prediction - SQL Analysis
--- Dataset: Bank Customer Churn (Kaggle)
+-- Dataset: Bank Customer Churn (Churn_Modelling.csv)
+-- Table: bank_churn (load from data/raw/Churn_Modelling.csv)
 -- Purpose: Segment customers, churn rate by segment, support ML features
 
 -- =============================================================================
--- 1. Churn rate by product type (e.g. NumOfProducts)
+-- 1. Churn rate by product type (NumOfProducts)
 -- =============================================================================
--- Uncomment and adapt column names to your actual schema:
-/*
 SELECT
     NumOfProducts,
     COUNT(*) AS total_customers,
@@ -15,12 +14,10 @@ SELECT
 FROM bank_churn
 GROUP BY NumOfProducts
 ORDER BY NumOfProducts;
-*/
 
 -- =============================================================================
 -- 2. Churn rate by tenure band
 -- =============================================================================
-/*
 SELECT
     CASE
         WHEN Tenure < 2 THEN '0-1'
@@ -34,12 +31,10 @@ SELECT
 FROM bank_churn
 GROUP BY tenure_band
 ORDER BY tenure_band;
-*/
 
 -- =============================================================================
 -- 3. Churn rate by geography
 -- =============================================================================
-/*
 SELECT
     Geography,
     COUNT(*) AS total_customers,
@@ -48,12 +43,10 @@ SELECT
 FROM bank_churn
 GROUP BY Geography
 ORDER BY churn_rate_pct DESC;
-*/
 
 -- =============================================================================
--- 4. Balance segment (e.g. zero vs non-zero balance)
+-- 4. Balance segment (zero vs non-zero balance)
 -- =============================================================================
-/*
 SELECT
     CASE WHEN Balance = 0 THEN 'Zero' ELSE 'Non-zero' END AS balance_segment,
     COUNT(*) AS total_customers,
@@ -61,11 +54,11 @@ SELECT
     ROUND(100.0 * SUM(Exited) / COUNT(*), 2) AS churn_rate_pct
 FROM bank_churn
 GROUP BY balance_segment;
-*/
 
 -- =============================================================================
 -- 5. Customer segmentation view (for Power BI / reporting)
 -- =============================================================================
+-- Run after creating bank_churn table:
 /*
 CREATE OR REPLACE VIEW v_customer_churn_segments AS
 SELECT
