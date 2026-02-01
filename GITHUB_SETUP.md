@@ -17,13 +17,13 @@ Your local Portfolio is already a Git repo with one commit. Follow these steps t
 
 ## 2. Add GitHub as remote and push
 
-In your terminal, from the Portfolio folder, run (replace **YOUR_USERNAME** with your GitHub username):
+In your terminal, from the Portfolio folder, run (replace **pavankandikattu1-source** with your GitHub username):
 
 ```bash
 cd /Users/pavansatvik/Portfolio
 
 # Add your new GitHub repo as the remote "origin"
-git remote add origin https://github.com/YOUR_USERNAME/Portfolio.git
+git remote add origin https://github.com/pavankandikattu1-source/Portfolio.git
 
 # Push your local main branch to GitHub
 git push -u origin main
@@ -33,7 +33,7 @@ git push -u origin main
 If you use SSH keys with GitHub, use:
 
 ```bash
-git remote add origin git@github.com:YOUR_USERNAME/Portfolio.git
+git remote add origin git@github.com:pavankandikattu1-source/Portfolio.git
 git push -u origin main
 ```
 
@@ -41,7 +41,7 @@ git push -u origin main
 
 ## 3. Check it’s connected
 
-- Open **https://github.com/YOUR_USERNAME/Portfolio** in your browser — you should see your files.
+- Open **https://github.com/pavankandikattu1-source/Portfolio** in your browser — you should see your files.
 - For future changes: `git add .` → `git commit -m "Your message"` → `git push`
 
 ---
