@@ -2,55 +2,113 @@
 
 ## 1. Executive Summary
 
-We analyzed 10,000 bank customers to predict churn (Exited = 1). **Overall churn rate is 20.37%.** A Random Forest model achieved **AUC 0.85** and identified **Age**, **EstimatedSalary**, **CreditScore**, **Balance**, and **NumOfProducts** as the strongest predictors. The model correctly flags ~46% of churners (recall) with 78% precision, enabling targeted retention campaigns. Revenue impact can be quantified as at-risk LTV × churn probability for high-risk segments.
+This report presents a predictive churn model for a retail banking customer base. The objective is to identify customers at high risk of leaving and quantify the revenue impact to prioritize retention efforts.
 
-## 2. Methodology
+| Key Metric | Value |
+|------------|-------|
+| **Dataset size** | 10,000 customers |
+| **Churn rate** | 20.37% (2,037 churned) |
+| **Best model** | Random Forest (AUC 0.85) |
+| **Top predictors** | Age, EstimatedSalary, CreditScore, Balance, NumOfProducts |
+| **Recall (churn)** | 46% – captures nearly half of actual churners |
+| **Precision (churn)** | 78% – high confidence in predicted churners |
 
-- **Data source:** Bank Customer Churn (Kaggle-style schema); local file `Churn_Modelling.csv` (10,000 rows, 14 columns).
-- **Tools:** Python (Pandas, Scikit-learn), SQL (segment analysis), Power BI (dashboard).
-- **Steps:** EDA → drop non-predictive columns → one-hot encode Geography/Gender → train/test split (80/20, stratified) → StandardScaler → Logistic Regression & Random Forest → evaluation (confusion matrix, ROC-AUC, feature importance).
+The model enables **targeted retention campaigns** by scoring customers on churn probability. Revenue at risk can be estimated as customer value × churn probability for prioritization.
 
-## 3. Key Metrics & KPIs
+---
 
-| Metric | Definition |
-|--------|------------|
-| Churn rate | % of customers who exited in the observation period (20.37%) |
-| AUC | Area under ROC curve; Random Forest 0.85, Logistic Regression 0.77 |
-| Precision (churn) | Of those predicted as churners, % who actually churned (RF: 78%) |
-| Recall (churn) | Of actual churners, % correctly identified (RF: 46%) |
+## 2. Business Context
 
-## 4. Findings
+Retail banks face significant cost to acquire new customers. Retaining existing customers is typically more profitable than replacing them. Key questions addressed:
 
-### Data quality
-- **Shape:** 10,000 rows × 14 columns.
-- **Missing values:** None.
+- **Which customer segments have the highest churn risk?**
+- **What factors predict churn (demographics, products, behavior)?**
+- **How can we quantify revenue at risk and prioritize retention spend?**
+
+This analysis supports marketing, product, and finance teams in designing retention strategies and measuring ROI.
+
+---
+
+## 3. Data & Methodology
+
+### 3.1 Data Source
+
+- **Source:** Bank Customer Churn dataset (Kaggle-style schema).
+- **Records:** 10,000 customers; 14 columns.
 - **Target:** Exited (0 = retained, 1 = churned).
+- **Features:** CustomerId, CreditScore, Geography, Gender, Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary.
 
-### Churn by segment (from EDA)
-- Churn varies by **Geography** (Germany typically higher), **Age** (older customers more likely to churn), and **NumOfProducts** (e.g. single-product customers more at risk).
+### 3.2 Data Quality
 
-### Model performance
-- **Logistic Regression:** AUC 0.77; precision (churn) 0.59, recall (churn) 0.19.
-- **Random Forest:** AUC **0.85**; precision (churn) **0.78**, recall (churn) **0.46**; accuracy 86%.
-- **Confusion matrix (RF):** See `visualizations/confusion_matrix.png`.
+- **Missing values:** None.
+- **Duplicates:** None (CustomerId unique).
+- **Encoding:** One-hot encoding for Geography and Gender.
 
-### Feature importance (Random Forest, top 5)
-1. **Age** (23.7%)
-2. **EstimatedSalary** (14.7%)
-3. **CreditScore** (14.3%)
-4. **Balance** (14.2%)
-5. **NumOfProducts** (13.1%)
+### 3.3 Methodology
 
-Followed by Tenure, IsActiveMember, Geography (Germany, Spain), HasCrCard, Gender_Male.
+1. **EDA** – Churn by geography, age, product count, balance.
+2. **Preprocessing** – Drop non-predictive columns (CustomerId, Surname); scale numeric features.
+3. **Train/test split** – 80/20, stratified on Exited.
+4. **Models** – Logistic Regression, Random Forest.
+5. **Evaluation** – Confusion matrix, ROC-AUC, precision, recall, feature importance.
 
-## 5. Limitations
+---
 
-- **Imbalanced class:** ~20% churn; recall for churn class is moderate; threshold tuning or class weights could improve recall.
-- **Temporal:** No time dimension; cross-sectional snapshot only.
-- **LTV:** EstimatedSalary/balance used as proxies; true LTV not in dataset.
-- **Causality:** Correlations only; no causal claims.
+## 4. Key Findings
 
-## 6. References
+### 4.1 Churn by Segment
 
-- Dataset: Bank Customer Churn (Kaggle); local copy as `data/raw/Churn_Modelling.csv`.
-- Code: `notebooks/01_eda.ipynb`, `02_data_cleaning.ipynb`, `03_analysis.ipynb`; `scripts/run_analysis.py`.
+| Segment | Observation |
+|---------|-------------|
+| **Geography** | Germany shows higher churn than France/Spain |
+| **Age** | Older customers (e.g. 45+) churn more frequently |
+| **NumOfProducts** | Single-product customers are at higher risk |
+| **Balance** | Zero-balance customers may indicate disengagement |
+| **IsActiveMember** | Inactive members churn more |
+
+### 4.2 Model Performance
+
+| Model | AUC | Precision (Churn) | Recall (Churn) | Accuracy |
+|-------|-----|-------------------|----------------|----------|
+| Logistic Regression | 0.77 | 0.59 | 0.19 | 0.81 |
+| Random Forest | **0.85** | **0.78** | **0.46** | **0.86** |
+
+**Random Forest** is preferred for its higher discriminative ability and better recall on the churn class.
+
+### 4.3 Feature Importance (Random Forest)
+
+| Rank | Feature | Importance | Interpretation |
+|------|---------|------------|----------------|
+| 1 | Age | 23.7% | Life-stage and product fit |
+| 2 | EstimatedSalary | 14.7% | Value segment; high earners may have more options |
+| 3 | CreditScore | 14.3% | Satisfaction / eligibility for products |
+| 4 | Balance | 14.2% | Engagement and stickiness |
+| 5 | NumOfProducts | 13.1% | Product diversification reduces churn |
+
+---
+
+## 5. Revenue Impact Framework
+
+**At-risk revenue** = Σ (Customer value × Churn probability)
+
+- **Customer value proxy:** EstimatedSalary or Balance (dataset lacks true LTV).
+- **Prioritization:** Focus retention budget on high-value, high-risk customers (top decile of risk × value).
+- **Target:** Reduce churn in top decile by 10–15% via targeted campaigns.
+
+---
+
+## 6. Limitations
+
+| Limitation | Mitigation |
+|------------|------------|
+| Imbalanced class (~20% churn) | Threshold tuning or class weights to improve recall |
+| No time dimension | Cross-sectional snapshot; consider survival analysis for tenure |
+| LTV proxy | EstimatedSalary/balance used; true LTV would improve prioritization |
+| Causality | Correlations only; no causal claims without experimentation |
+
+---
+
+## 7. References
+
+- **Dataset:** Bank Customer Churn (Kaggle); local copy as `data/raw/churn.csv`.
+- **Code:** `notebooks/01_eda.ipynb`, `02_data_cleaning.ipynb`, `03_analysis.ipynb`; `scripts/run_analysis.py`.
