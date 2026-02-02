@@ -14,13 +14,15 @@ A lending institution needs to predict which applicants will default. **Which ch
 
 ---
 
-## 📊 Key Results
+## 📊 Key Results (Home Credit Default Risk)
 
 | Metric | Value |
 |--------|-------|
-| **Default Rate** | ~11% (sample data) |
-| **Models** | Logistic Regression, Random Forest (class_weight for imbalance) |
-| **Evaluation** | ROC-AUC, precision-recall, confusion matrix |
+| **Dataset** | Home Credit (307K applications) |
+| **Default Rate** | 8.07% |
+| **Models** | Logistic Regression, Random Forest (SMOTE + threshold tuning) |
+| **Evaluation** | ROC-AUC ~0.74 (LR), ~0.72 (RF), F1-optimized threshold |
+| **Features** | 37 (application + bureau + bureau_balance + previous_application + installments + credit_card + POS_CASH) |
 | **Risk Tiers** | Low / Medium / High / Critical by default probability |
 
 ### Feature Importance
@@ -41,7 +43,11 @@ pip install -r requirements.txt
 python scripts/run_analysis.py
 ```
 
-**Data:** Script auto-generates sample data. Replace with [Kaggle Lending Club](https://www.kaggle.com/datasets/omermetinn/loans-data-set) for production use.
+**Data:** Uses [Home Credit Default Risk](https://www.kaggle.com/c/home-credit-default-risk/data) from:
+```
+/Users/pavansatvik/Downloads/home-credit-default-risk
+```
+Override with `export HOME_CREDIT_PATH="/your/path"`. If not found, falls back to synthetic sample data.
 
 ---
 
@@ -49,7 +55,7 @@ python scripts/run_analysis.py
 
 | Deliverable | Location |
 |-------------|----------|
-| Data Generation | `scripts/generate_sample_data.py` |
+| Data Loader | `scripts/load_home_credit.py` (7 tables: application, bureau, bureau_balance, previous_application, installments_payments, credit_card_balance, POS_CASH_balance) |
 | Full Pipeline | `scripts/run_analysis.py` |
 | SQL Analysis | `sql/queries.sql` |
 | Risk Tiers | Low (0–20%), Medium (20–50%), High (50–80%), Critical (80%+) |
