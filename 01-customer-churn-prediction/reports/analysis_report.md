@@ -85,9 +85,31 @@ This analysis supports marketing, product, and finance teams in designing retent
 | 4 | Balance | 14.2% | Engagement and stickiness |
 | 5 | NumOfProducts | 13.1% | Product diversification reduces churn |
 
+**Feature Importance Chart**
+
+![Feature Importance](../visualizations/feature_importance.png)
+
+### 4.4 Confusion Matrix (Random Forest)
+
+![Confusion Matrix](../visualizations/confusion_matrix.png)
+
+**Takeaway:** The model correctly identifies 46% of churners (recall) with 78% precision. Use predicted churners for targeted retention campaigns; focus on high-value × high-risk customers for maximum ROI.
+
 ---
 
-## 5. Revenue Impact Framework
+## 5. Main Takeaways
+
+| # | Takeaway |
+|---|----------|
+| 1 | **Age and product count** are the strongest churn predictors—target older, single-product customers first. |
+| 2 | **Germany** shows higher churn; review market-specific value proposition and fees. |
+| 3 | **Random Forest (AUC 0.85)** outperforms Logistic Regression; use for production scoring. |
+| 4 | **At-risk revenue** = Σ (value × churn prob); prioritize top decile for retention spend. |
+| 5 | **Zero-balance, inactive** customers are at risk; onboarding and engagement programs can help. |
+
+---
+
+## 6. Revenue Impact Framework
 
 **At-risk revenue** = Σ (Customer value × Churn probability)
 
@@ -97,7 +119,7 @@ This analysis supports marketing, product, and finance teams in designing retent
 
 ---
 
-## 6. Limitations
+## 7. Limitations
 
 | Limitation | Mitigation |
 |------------|------------|
@@ -108,7 +130,7 @@ This analysis supports marketing, product, and finance teams in designing retent
 
 ---
 
-## 7. References
+## 8. References
 
 - **Dataset:** Bank Customer Churn (Kaggle); local copy as `data/raw/churn.csv`.
 - **Code:** `notebooks/01_eda.ipynb`, `02_data_cleaning.ipynb`, `03_analysis.ipynb`; `scripts/run_analysis.py`.

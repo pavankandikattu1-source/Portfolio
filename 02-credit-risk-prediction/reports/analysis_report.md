@@ -103,9 +103,31 @@ This analysis supports credit decision engines, portfolio monitoring, and regula
 4. **AGE** – Life-stage risk.
 5. **Bureau/installment features** – Past credit and payment behavior.
 
+**Feature Importance Chart**
+
+![Feature Importance](../visualizations/feature_importance.png)
+
+### 5.2 Confusion Matrix (Random Forest, Threshold 0.30)
+
+![Confusion Matrix](../visualizations/confusion_matrix.png)
+
+**Takeaway:** At threshold 0.30, the model captures 46% of defaults (recall) with 19% precision. Trade-off favors catching more defaults for capital/provisioning; adjust threshold by segment if needed.
+
 ---
 
-## 6. Risk Tier Framework
+## 6. Main Takeaways
+
+| # | Takeaway |
+|---|----------|
+| 1 | **External scores (EXT_SOURCE_2/3)** and **employment** are the strongest default predictors. |
+| 2 | **Threshold 0.30** optimizes F1 for defaults; use for approval logic and risk tier assignment. |
+| 3 | **37 features** from 7 tables capture application + behavioral risk; bureau/installment data adds signal. |
+| 4 | **Risk tiers** (Low/Medium/High/Critical) support RWA, IFRS 9 provisions, and approval workflow. |
+| 5 | **SMOTE** addresses 8% imbalance; validate on holdout and monitor calibration post-deployment. |
+
+---
+
+## 7. Risk Tier Framework
 
 | Tier | Default Probability | Suggested Action |
 |------|---------------------|------------------|
@@ -116,7 +138,7 @@ This analysis supports credit decision engines, portfolio monitoring, and regula
 
 ---
 
-## 7. Limitations & Next Steps
+## 8. Limitations & Next Steps
 
 | Limitation | Mitigation |
 |------------|------------|

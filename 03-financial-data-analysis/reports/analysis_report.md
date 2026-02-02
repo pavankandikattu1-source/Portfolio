@@ -105,9 +105,45 @@ Python (Pandas, NumPy, Matplotlib, Seaborn).
 - Rolling 12-month volatility provides a **stress benchmark** for VaR and capital.
 - Long-term median volatility supports **scenario design** (e.g. 2× median stress).
 
+### 5.4 Analysis Outputs
+
+**Risk-Return Scatter (5-Year Rolling Windows)**
+
+![Risk-Return Scatter](../visualizations/risk_return_scatter.png)
+
+**Takeaway:** Each point is a 5-year window. Stress periods (e.g. 1974, 2008) show negative returns and elevated volatility. Use for calibrating expected return/risk assumptions.
+
+**Correlation Matrix (S&P 500 vs Macro, Last 30 Years)**
+
+![Correlation Heatmap](../visualizations/correlation_heatmap.png)
+
+| Variable | vs S&P 500 Return | Interpretation |
+|----------|-------------------|----------------|
+| CPI_Change | +0.34 | Inflation and equity returns positively correlated in recent decades |
+| Interest_Rate | −0.02 | Weak negative; rate sensitivity varies by regime |
+| PE10 | +0.10 | Weak positive; high valuation not strongly linked to next-period return in this window |
+
+**Volatility Trend (Rolling 12-Month, Last 50 Years)**
+
+![Volatility Trend](../visualizations/volatility_trend.png)
+
+**Takeaway:** Volatility spikes in 1974, 1987, 2008, 2020. Median volatility provides a stress benchmark for VaR and scenario design.
+
 ---
 
-## 6. Volatility Regime Framework
+## 6. Main Takeaways
+
+| # | Takeaway |
+|---|----------|
+| 1 | **S&P 500 volatility** is time-varying; spikes during crises (1974, 2008, 2020). |
+| 2 | **CPI change** shows +0.34 correlation with returns (last 30Y); inflation regime matters. |
+| 3 | **5-year rolling** risk-return scatter reveals historical trade-offs; use for scenario calibration. |
+| 4 | **Volatility regime framework** (Low/Elevated/High/Stress) supports allocation and limits. |
+| 5 | **Median volatility** benchmarks stress scenarios (e.g. 2× median for capital planning). |
+
+---
+
+## 7. Volatility Regime Framework
 
 | Regime | Rolling 12m Volatility | Suggested Action |
 |--------|------------------------|------------------|
@@ -118,7 +154,7 @@ Python (Pandas, NumPy, Matplotlib, Seaborn).
 
 ---
 
-## 7. Limitations & Next Steps
+## 8. Limitations & Next Steps
 
 | Limitation | Mitigation |
 |------------|------------|
