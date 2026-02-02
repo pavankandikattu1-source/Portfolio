@@ -1,57 +1,48 @@
-# Data Analyst Portfolio | ING & Financial Services
+# Portfolio Overview | ING COO Risk Alignment
 
-**Profile:** Business Analytics Graduate (MScBA)  
-**Career Goal:** ING & Financial Services  
-**Stack:** Python • SQL • Power BI
+**Target Role:** Air Traffic Control Consultant (ING COO Risk | Credit Risk Modelling)
 
 ---
 
-## Target Role: Air Traffic Control Consultant (ING COO Risk)
+## Role Requirements → Project Mapping
 
-**Key requirements:** Process modeling, end-to-end implementation, project coordination, credit risk modeling, cross-functional collaboration, regulatory compliance, bridge between business and IT.
-
-### Top 3 Recommended Projects for This Role
-
-| # | Project | Relevance | Status |
-|---|---------|-----------|--------|
-| 1 | [Credit Risk & Loan Default Prediction](./02-credit-risk-prediction) | **PRIMARY** – Core credit risk, RWA, provisions | ✅ Complete |
-| 2 | [Financial Data Analysis](./03-financial-data-analysis) | **SECONDARY** – Risk metrics, portfolio analysis | ✅ Complete |
-| 3 | [Sales Forecasting](./04-sales-forecasting) | Planning, strategic topics, coordination | ✅ Complete |
+| Requirement | How Projects Demonstrate It |
+|-------------|-----------------------------|
+| Process modeling & end-to-end implementation | Full pipelines: data → analysis → model → reports |
+| Credit risk modeling | Project 2: Default prediction, risk tiers, RWA/provisions |
+| Project coordination & collaboration | Cross-functional deliverables: SQL, Python, Power BI |
+| Regulatory compliance understanding | Risk tier definitions, model validation, documentation |
+| Bridge between business and IT | Business recommendations + technical implementation |
 
 ---
 
-## All Portfolio Projects
+## Top 3 Projects for This Role
 
-| # | Project | Focus |
-|---|---------|-------|
-| 1 | [Customer Churn Prediction](./01-customer-churn-prediction) | Retail banking, retention |
-| 2 | [Credit Risk & Loan Default](./02-credit-risk-prediction) | Credit risk modeling, RWA |
-| 3 | [Financial Data Analysis](./03-financial-data-analysis) | Stock volatility, risk-return |
-| 4 | [Sales Forecasting](./04-sales-forecasting) | Time-series, planning |
+| Priority | Project | Why It Stands Out |
+|----------|---------|-------------------|
+| **1** | [Credit Risk & Loan Default](./02-credit-risk-prediction) | Core COO Risk function: credit exposures, RWA, provisions, model validation |
+| **2** | [Financial Data Analysis](./03-financial-data-analysis) | Risk metrics, portfolio thinking, quantitative rigor |
+| **3** | [Sales Forecasting](./04-sales-forecasting) | Planning, strategic topics, coordination across teams |
 
 ---
 
-## Interview Framing (ING COO Risk)
+## Interview Framing Template
 
 **Problem → Approach → Implementation → Impact**
 
-- **Credit Risk:** "I built an end-to-end credit risk framework: model design → implementation → validation. Translated outputs into risk tiers and capital impact."
-- **Financial Analysis:** "I analyzed risk-return profiles and correlation to support portfolio and enterprise risk thinking."
-- **Forecasting:** "I delivered time-series forecasts to support planning and strategic decision-making."
+| Project | 30-Second Pitch |
+|---------|-----------------|
+| **Credit Risk** | "I built an end-to-end credit risk framework: model design, implementation, and validation. I translated outputs into risk tiers and capital impact—mirroring how your team manages credit exposures and RWA." |
+| **Financial Analysis** | "I analyzed risk-return profiles and correlation across stocks to support portfolio and enterprise risk thinking." |
+| **Forecasting** | "I delivered time-series forecasts to support planning and strategic decision-making, with clear communication of uncertainty." |
 
 ---
 
-## Repository Structure (Per Project)
+## All Projects at a Glance
 
-```
-project-name/
-├── README.md
-├── data/raw/          # Original dataset or link
-├── data/processed/    # Cleaned data
-├── scripts/           # run_analysis.py
-├── sql/               # queries.sql
-├── visualizations/    # Charts, dashboard screenshots
-├── reports/           # analysis_report.md, business_recommendations.md
-├── requirements.txt
-└── .gitignore
-```
+| # | Project | Focus Area |
+|---|---------|------------|
+| 1 | [Customer Churn](./01-customer-churn-prediction) | Retail banking, retention, LTV |
+| 2 | [Credit Risk](./02-credit-risk-prediction) | Credit scoring, RWA, provisions |
+| 3 | [Financial Analysis](./03-financial-data-analysis) | Volatility, risk-return, portfolio |
+| 4 | [Sales Forecasting](./04-sales-forecasting) | Time-series, planning |

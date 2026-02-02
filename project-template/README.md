@@ -1,17 +1,18 @@
-# [Project Name]
+# Project Template
 
-**Business Problem:** [One sentence]  
-**Dataset:** [Source URL]  
-**Stack:** Python • SQL • Power BI
+Use this structure when adding new portfolio projects. See [main README](../README.md) and [PORTFOLIO_OVERVIEW](../PORTFOLIO_OVERVIEW.md) for standards.
 
-## Deliverables
+## Structure
 
-- [ ] Data Preprocessing Notebook
-- [ ] SQL Analysis Script
-- [ ] Model / Analysis
-- [ ] Power BI Dashboard
-- [ ] README with executive summary & recommendations
-
-## Repository Structure
-
-See parent [PORTFOLIO_OVERVIEW.md](../PORTFOLIO_OVERVIEW.md) for the standard structure.
+```
+project-name/
+├── README.md
+├── data/raw/
+├── data/processed/
+├── scripts/
+├── sql/
+├── visualizations/
+├── reports/
+├── requirements.txt
+└── .gitignore
+```

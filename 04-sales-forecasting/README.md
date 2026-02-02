@@ -1,22 +1,33 @@
 # Sales Performance & Time-Series Forecasting
 
-**Business Problem:** A retail superstore wants to forecast Q1–Q4 sales by region and product category. What are seasonal patterns and growth trends?
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)](.)
+[![Time-Series](https://img.shields.io/badge/Time--Series-Forecasting-2196F3?style=flat)](.)
 
-**Target Role:** ING COO Risk — *Planning, strategic topics, coordination*
-
-**Dataset:** Sample monthly sales (`scripts/generate_sample_data.py`). Replace with [Superstore](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) for production.
-
-**Stack:** Python (Pandas, Scikit-learn) • SQL • Power BI
+> Forecast sales with trend and seasonality. Supports planning, strategic topics, and coordination. Aligns with ING COO Risk: **building a planning**, solving impediments, coordinating implementations.
 
 ---
 
-## Executive Summary
+## 📌 Business Problem
 
-Time-series analysis: **seasonal decomposition**, **trend**, **12-month forecast** with linear extrapolation. Demonstrates planning capability, forecasting, and uncertainty communication. Aligns with "building a planning" and strategic topics in COO Risk.
+A retail superstore wants to forecast Q1–Q4 sales. **What are seasonal patterns and growth trends?** How can we support planning and resource allocation?
 
 ---
 
-## How to Run
+## 📊 Key Outputs
+
+| Output | Description |
+|--------|-------------|
+| **12-Month Forecast** | Linear trend extrapolation with moving averages |
+| **YoY Growth** | Year-over-year growth metrics |
+| **Seasonality** | Trend + seasonal component in sample data |
+
+### Sales Forecast
+
+![Sales Forecast](visualizations/sales_forecast.png)
+
+---
+
+## 🚀 Quick Start
 
 ```bash
 cd 04-sales-forecasting
@@ -24,12 +35,28 @@ pip install -r requirements.txt
 python scripts/run_analysis.py
 ```
 
+**Data:** Script auto-generates sample monthly sales. Replace with [Superstore dataset](https://www.kaggle.com/datasets/vivek468/superstore-dataset-final) for production.
+
 ---
 
-## Deliverables
+## 📁 Deliverables
 
 | Deliverable | Location |
 |-------------|----------|
-| Data generation | `scripts/generate_sample_data.py` |
-| Forecast | 12-month linear trend extrapolation |
-| Visualizations | `visualizations/sales_forecast.png` |
+| Data Generation | `scripts/generate_sample_data.py` |
+| Forecast | `scripts/run_analysis.py` |
+| Outputs | `visualizations/sales_forecast.png`, `data/processed/forecast_12m.csv` |
+
+---
+
+## 🛠️ Tech Stack
+
+Python • Pandas • NumPy • Scikit-learn • Matplotlib
+
+---
+
+## 🎯 Why This Matters for ING COO Risk
+
+- **Planning:** Building a planning, forecasting
+- **Strategic topics:** Growth drivers, seasonal patterns
+- **Coordination:** Cross-team alignment on targets
