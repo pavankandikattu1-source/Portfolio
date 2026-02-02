@@ -22,6 +22,7 @@ Portfolio of end-to-end analytics projects designed for **ING COO Risk** and fin
 | **[Credit Risk Prediction](02-credit-risk-prediction)** | Predict loan defaults, define risk tiers | ROC-AUC, risk segmentation | Python, Scikit-learn |
 | **[Financial Analysis](03-financial-data-analysis)** | Stock volatility & risk-return analysis | Live S&P 500 data, correlation | Python, yfinance |
 | **[Sales Forecasting](04-sales-forecasting)** | Forecast sales, seasonal patterns | 12-month forecast, YoY growth | Python, Pandas |
+| **[Geographic & Regional](05-geographic-regional-performance)** | Multi-country economic comparison | World Bank GDP, urbanization | Python, wbdata |
 
 ---
 
@@ -33,6 +34,7 @@ Portfolio/
 ├── 02-credit-risk-prediction/       # Credit risk modeling (ING COO Risk)
 ├── 03-financial-data-analysis/      # Stock volatility & portfolio
 ├── 04-sales-forecasting/            # Time-series planning
+├── 05-geographic-regional-performance/  # World Bank indicators, market comparison
 └── PORTFOLIO_OVERVIEW.md            # Role alignment & interview framing
 ```
 
@@ -47,6 +49,7 @@ Portfolio/
 | **ML** | Scikit-learn |
 | **Visualization** | Matplotlib, Seaborn, Power BI |
 | **Finance** | yfinance |
+| **Data** | wbdata (World Bank) |
 
 ---
 
