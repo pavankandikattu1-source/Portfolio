@@ -26,18 +26,6 @@
 
 ---
 
-## Interview Framing Template
-
-**Problem → Approach → Implementation → Impact**
-
-| Project | 30-Second Pitch |
-|---------|-----------------|
-| **Credit Risk** | "I built an end-to-end credit risk framework: model design, implementation, and validation. I translated outputs into risk tiers and capital impact—mirroring how your team manages credit exposures and RWA." |
-| **Financial Analysis** | "I analyzed risk-return profiles and correlation across stocks to support portfolio and enterprise risk thinking." |
-| **Forecasting** | "I delivered time-series forecasts to support planning and strategic decision-making, with clear communication of uncertainty." |
-
----
-
 ## All Projects at a Glance
 
 | # | Project | Focus Area |

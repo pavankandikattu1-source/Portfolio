@@ -35,7 +35,7 @@ Portfolio/
 ├── 03-financial-data-analysis/      # Stock volatility & portfolio
 ├── 04-sales-forecasting/            # Time-series planning
 ├── 05-geographic-regional-performance/  # World Bank indicators, market comparison
-└── PORTFOLIO_OVERVIEW.md            # Role alignment & interview framing
+└── PORTFOLIO_OVERVIEW.md            # Role alignment & project mapping
 ```
 
 ---
@@ -55,7 +55,7 @@ Portfolio/
 
 ## 🎯 Target Role: Air Traffic Control Consultant (ING COO Risk)
 
-Projects align with **process modeling**, **credit risk**, **end-to-end implementation**, and **cross-functional collaboration**. See [PORTFOLIO_OVERVIEW.md](PORTFOLIO_OVERVIEW.md) for interview framing and role mapping.
+Projects align with **process modeling**, **credit risk**, **end-to-end implementation**, and **cross-functional collaboration**. See [PORTFOLIO_OVERVIEW.md](PORTFOLIO_OVERVIEW.md) for role mapping.
 
 ---
 
