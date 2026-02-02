@@ -1,16 +1,15 @@
-# Financial Data Analysis – Stock Volatility & Portfolio Performance
+# Financial Data Analysis – S&P 500 Volatility & Macro Correlation
 
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)](.)
-[![yfinance](https://img.shields.io/badge/yfinance-Live_Data-00C853?style=flat)](.)
 [![ING COO Risk](https://img.shields.io/badge/ING_COO_Risk-Secondary_Project-FF6200?style=flat)](.)
 
-> Risk-return analysis of S&P 500 stocks using **live data**. Volatility, correlation, and portfolio thinking. **Secondary recommendation for ING Air Traffic Control Consultant role.**
+> Risk-return and correlation analysis of **S&P 500** with macro indicators (CPI, interest rates, PE10). Volatility trends, rolling risk-return windows, and macro relationships. **Secondary recommendation for ING Air Traffic Control Consultant role.**
 
 ---
 
 ## 📌 Business Problem
 
-Analyze stock volatility across sectors. **Which stocks show high volatility risk?** What is the risk-return tradeoff? How can we support portfolio allocation and enterprise risk decisions?
+Analyze S&P 500 volatility and its relationship to macro factors. **What drives risk over time?** How do interest rates and inflation correlate with returns? How can we support portfolio allocation and risk management decisions?
 
 ---
 
@@ -18,9 +17,9 @@ Analyze stock volatility across sectors. **Which stocks show high volatility ris
 
 | Output | Description |
 |--------|-------------|
-| **Risk-Return Scatter** | Annualized return vs. volatility by stock |
-| **Correlation Matrix** | Diversification opportunities |
-| **Volatility Trends** | Rolling 20-day annualized volatility over time |
+| **Risk-Return Scatter** | 5-year rolling return vs. volatility (S&P 500) |
+| **Correlation Matrix** | S&P 500 returns vs CPI change, interest rate, PE10 |
+| **Volatility Trends** | Rolling 12-month annualized volatility over time |
 
 ### Risk-Return Profile
 
@@ -44,7 +43,7 @@ pip install -r requirements.txt
 python scripts/run_analysis.py
 ```
 
-**Data:** Fetched automatically via **yfinance** (AAPL, MSFT, GOOGL, AMZN, JPM, etc.). No manual download.
+**Data:** Uses `data/raw/filtered_data.csv` (S&P 500 + macro indicators, 1871–2023). Override with `export FINANCIAL_DATA_PATH="/path/to/filtered_data.csv"`. Falls back to **yfinance** if not found.
 
 ---
 
@@ -52,7 +51,7 @@ python scripts/run_analysis.py
 
 | Deliverable | Location |
 |-------------|----------|
-| Data Fetch | yfinance (last 2 years) |
+| Data | `data/raw/filtered_data.csv` (SP500, CPI, Interest Rate, PE10, etc.) |
 | Analysis | `scripts/run_analysis.py` |
 | Outputs | `visualizations/`, `data/processed/` |
 
@@ -60,7 +59,7 @@ python scripts/run_analysis.py
 
 ## 🛠️ Tech Stack
 
-Python • Pandas • NumPy • Matplotlib • Seaborn • yfinance
+Python • Pandas • NumPy • Matplotlib • Seaborn • (yfinance fallback)
 
 ---
 
